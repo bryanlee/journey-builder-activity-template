@@ -21,7 +21,7 @@
                 }									
 			],
           "outArguments": [],
-          "url": "https://<your-domain-here>/journeybuilder/execute",
+          "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/execute",
            "verb": "POST",
             "body": "",
             "header": "",
@@ -31,24 +31,24 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "__application_key_from_appcenter_here__",
+      "applicationExtensionKey": "caUlx0CCV5xzLnTqHLAZWba8c6Y_AzG1JX7gjGyVG8l2PVN8Gr1eDmr1wpQ0XFxjFR0SDhnZjhJriQAUauRf8XLzflfXxHBxGPQDEdhmYdhV6vvpazQKezvNCzNwv-xKfoBcHCSIBZqWVGaU43-mdG_SvZoo9k-QDNGcopr6qbvVsUr5_gVlAu7uVI2yDIa5vieCZbJiyUs0PjJVRkQg2OzCt72LImmpVwy3IIE65Rhj7qkmSZiY6PldoZOCXg2",
       "save": {
-        "url": "https://<your-domain-here>/journeybuilder/save",
+        "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/save",
           "verb": "POST",
         "useJwt": true
        },
        "publish": {
-        "url": "https://<your-domain-here>/journeybuilder/publish",
+        "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/publish",
            "verb": "POST",
         "useJwt": true
        },
       "stop": {
-        "url": "https://<your-domain-here>/journeybuilder/stop",
+        "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/stop",
            "verb": "POST",
         "useJwt": true
       },
       "validate": {
-        "url": "https://<your-domain-here>/journeybuilder/validate",
+        "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/validate",
         "verb": "POST",
         "useJwt": true
       }

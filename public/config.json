@@ -16,12 +16,10 @@
     "arguments": {
         "execute": {
            "inArguments":[
-				{
-                    "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}"
-                }									
-			],
+		{ "emailAddress": "{{Contact.Default.Email}}"},
+	   ],
           "outArguments": [],
-          "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/execute",
+          "url": "http://i2civictech.i2smartwork.co.kr/sfmc/customActivity.json",
            "verb": "POST",
             "body": "",
             "header": "",

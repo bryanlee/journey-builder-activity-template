@@ -19,13 +19,7 @@
 		{ "emailAddress": "{{Contact.Default.Email}}"}
 	   ],
           "outArguments": [],
-          "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/execute",
-           "verb": "POST",
-            "body": "",
-            "header": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 10000
+          "url": "http://i2civictech.i2smartwork.co.kr/sfmc/customActivity.json",
         }
     },
     "configurationArguments": {

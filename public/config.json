@@ -59,13 +59,7 @@
         "arguments": {
             "execute": {
                 "inArguments": [
-			{
-                        "emailAddress": {
-                            "dataType": "Email",
-                            "isNullable": false,
-                            "direction": "in"
-                        }
-                    }
+		    
 		],
                 "outArguments": []
             }

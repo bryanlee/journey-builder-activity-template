@@ -1,5 +1,11 @@
+require.config({
+    paths: {
+        "jquery": 'http://code.jquery.com/jquery-1.9.1'
+    }
+});
+
 define([
-    'postmonger',"jquery.min"
+    'postmonger',"jquery"
 ], function (
     Postmonger,$
 ) {

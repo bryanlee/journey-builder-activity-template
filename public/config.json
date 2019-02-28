@@ -19,7 +19,7 @@
 		{ "emailAddress": "{{Contact.Default.Email}}"}
 	   ],
           "outArguments": [],
-          "url": "http://i2civictech.i2smartwork.co.kr/sfmc/customActivity.json",
+          "url": "http://i2civictech.i2smartwork.co.kr/sfmc/customActivity.json"
         }
     },
     "configurationArguments": {

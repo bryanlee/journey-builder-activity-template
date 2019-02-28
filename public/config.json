@@ -33,22 +33,22 @@
       "save": {
         "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/save",
           "verb": "POST",
-        "useJwt": true
+        "useJwt": false
        },
        "publish": {
         "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/publish",
            "verb": "POST",
-        "useJwt": true
+        "useJwt": false
        },
       "stop": {
         "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/stop",
            "verb": "POST",
-        "useJwt": true
+        "useJwt": false
       },
       "validate": {
         "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/validate",
         "verb": "POST",
-        "useJwt": true
+        "useJwt": false
       }
     },
     "wizardSteps": [

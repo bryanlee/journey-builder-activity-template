@@ -16,7 +16,7 @@
     "arguments": {
         "execute": {
            "inArguments":[
-		{ "emailAddress": "{{Contact.Default.Email}}"},
+		{ "emailAddress": "{{Contact.Default.Email}}"}
 	   ],
           "outArguments": [],
           "url": "http://i2civictech.i2smartwork.co.kr/sfmc/customActivity.json",

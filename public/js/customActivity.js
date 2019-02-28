@@ -1,5 +1,5 @@
 define([
-    'postmonger',"jquery"
+    'postmonger',"jquery.min"
 ], function (
     Postmonger,$
 ) {

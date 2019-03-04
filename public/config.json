@@ -16,21 +16,22 @@
     "arguments": {
         "execute": {
            "inArguments":[
-		{ "IsTest": "{{Context.IsTest}}"}
-		,{ "version": "{{Context.VersionNumber}}"}
-		,{ "sj_agent_id": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.sj_agent_id}}"}
-		,{ "sj_agent_cid": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.sj_agent_cid}}"}
-		,{ "msg_type": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.msg_type}}"}
-		,{ "mob_no": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.mob_no}}"}
-		,{ "callback": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.callback}}"}
-		,{ "message_body": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.message_body}}"}
-		,{ "k_template_code": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.k_template_code}}"}
-		,{ "sender_key": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.sender_key}}"}
-		,{ "campaign_no": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.campaign_no}}"}
-		,{ "segment": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.segment}}"}
-		,{ "contact_key": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.contact_key}}"}
-		,{ "running_datetime": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.running_datetime}}"}
-		,{ "rtn_mc_unit": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.rtn_mc_unit}}"}
+		{ "emailAddress": "{{Contact.Default.Email}}"},
+		{ "IsTest": "{{Context.IsTest}}"},
+		{ "version": "{{Context.VersionNumber}}"},
+		{ "sj_agent_id": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.sj_agent_id}}"},
+		{ "sj_agent_cid": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.sj_agent_cid}}"},
+		{ "msg_type": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.msg_type}}"},
+		{ "mob_no": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.mob_no}}"},
+		{ "callback": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.callback}}"},
+		{ "message_body": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.message_body}}"},
+		{ "k_template_code": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.k_template_code}}"},
+		{ "sender_key": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.sender_key}}"},
+		{ "campaign_no": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.campaign_no}}"},
+		{ "segment": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.segment}}"},
+		{ "contact_key": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.contact_key}}"},
+		{ "running_datetime": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.running_datetime}}"},
+		{ "rtn_mc_unit": "{{Event.4409EFE8-8061-44B9-B4F1-2AC977187294.rtn_mc_unit}}"}
 		   
 	   ],
           "outArguments": [],

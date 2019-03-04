@@ -9,18 +9,18 @@
     "lang": {
         "en-US": {
             "name": "YK-SMS-API",
-          "description": "call sendSingleMessageRestAPI on YK MSG API ",
+          "description": "sendSingleMessageRestAPI",
           "step1Label": "Configure Activity"
         }
     },
     "arguments": {
         "execute": {
            "inArguments":[
-		{ "irEmailAddress": "{{InteractionDefaults.Email}}"}
-		{ "emailAddress": "{{Contact.Default.Email}}"},
-                {"phoneNumber": "{{Contact.Default.PhoneNumber}}"},
-		{ "IsTest": "{{Context.IsTest}}"},
-		{ "version": "{{Context.VersionNumber}}"}
+		        { "irEmailAddress": "{{InteractionDefaults.Email}}"},
+		        { "emailAddress": "{{Contact.Default.Email}}"},
+            {"phoneNumber": "{{Contact.Default.PhoneNumber}}"},
+            { "IsTest": "{{Context.IsTest}}"},
+            { "version": "{{Context.VersionNumber}}"}
 	   ],
           "outArguments": [],
           "url": "http://i2civictech.i2smartwork.co.kr/sfmc/customActivity2.json",

@@ -8,8 +8,8 @@
     "type": "REST",
     "lang": {
         "en-US": {
-            "name": "Send-ST-SMS",
-          "description": "call sendSingleMessageRestAPI to sejong telecom ",
+            "name": "YK-SMS-API",
+          "description": "call sendSingleMessageRestAPI on YK MSG API ",
           "step1Label": "Configure Activity"
         }
     },

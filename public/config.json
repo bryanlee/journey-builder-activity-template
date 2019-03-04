@@ -16,10 +16,11 @@
     "arguments": {
         "execute": {
            "inArguments":[
+		{ "irEmailAddress": "{{InteractionDefaults.Email}}"}
 		{ "emailAddress": "{{Contact.Default.Email}}"},
+                {"phoneNumber": "{{Contact.Default.PhoneNumber}}"},
 		{ "IsTest": "{{Context.IsTest}}"},
 		{ "version": "{{Context.VersionNumber}}"}
-		   
 	   ],
           "outArguments": [],
           "url": "http://i2civictech.i2smartwork.co.kr/sfmc/customActivity2.json",

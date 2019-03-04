@@ -8,8 +8,8 @@
     "type": "REST",
     "lang": {
         "en-US": {
-            "name": "shlee-Template",
-          "description": "A Template for a custom Journey Builder activity",
+            "name": "Send-ST-SMS",
+          "description": "call sendSingleMessageRestAPI to sejong telecom ",
           "step1Label": "Configure Activity"
         }
     },

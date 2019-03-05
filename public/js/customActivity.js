@@ -74,7 +74,7 @@ define([
     function save() {
         //var postcardURLValue = $('#postcard-url').val();
         //var postcardTextValue = $('#postcard-text').val();
-
+        /*
         payload['arguments'].execute.inArguments = [{
             "emailAddress": "{{Contact.Default.Email}}",
             "phoneNumber": "{{Contact.Default.PhoneNumber}}",
@@ -82,7 +82,7 @@ define([
             "version": "{{Context.VersionNumber}}",
             "tokens": authTokens
         }];
-        
+        */
         payload['metaData'].isConfigured = true;
 
         console.log(payload);

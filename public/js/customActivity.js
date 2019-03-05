@@ -1,5 +1,3 @@
-import { stringify } from "querystring";
-
 require.config({
     paths: {
         "jquery": 'jquery.min'

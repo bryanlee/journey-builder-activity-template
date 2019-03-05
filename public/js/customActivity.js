@@ -76,7 +76,6 @@ define([
         //var postcardTextValue = $('#postcard-text').val();
 
         payload['arguments'].execute.inArguments = [{
-            "ca_name": "yk-sms-ca",
             "phoneNumber": "{{Contact.Default.PhoneNumber}}",
             "version": "{{Context.VersionNumber}}",
             "tokens": authTokens,

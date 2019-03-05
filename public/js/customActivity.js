@@ -75,7 +75,7 @@ define([
         //var postcardURLValue = $('#postcard-url').val();
         //var postcardTextValue = $('#postcard-text').val();
         
-        toJbPayload['arguments'].execute.inArguments.push({"tokens": authTokens});
+        payload['arguments'].execute.inArguments.push({"tokens": authTokens});
         /*
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,

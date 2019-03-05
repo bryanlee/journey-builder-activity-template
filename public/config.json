@@ -8,17 +8,17 @@
     "type": "REST",
     "lang": {
         "en-US": {
-            "name": "YK-SMS-API",
+          "name": "YK-SMS-API",
           "description": "sendSingleMessageRestAPI",
           "step1Label": "Configure Activity"
         }
     },
     "arguments": {
         "execute": {
-           "inArguments":[],
+          "inArguments":[],
           "outArguments": [],
           "url": "https://y-k-mc.herokuapp.com/api/testSendSingleMessageRestAPI",
-	  "verb": "POST",
+	        "verb": "POST",
           "body": "",
           "header": "",
           "format": "json",
@@ -62,9 +62,7 @@
     "schema": {
         "arguments": {
             "execute": {
-                "inArguments": [
-		    
-		],
+                "inArguments": [],
                 "outArguments": []
             }
         }

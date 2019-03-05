@@ -1,3 +1,5 @@
+import { stringify } from "querystring";
+
 require.config({
     paths: {
         "jquery": 'jquery.min'
@@ -14,12 +16,14 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
+    var eventDefinitionKey = '';
+
     $(window).ready(onRender);
 
     connection.on('initActivity', initialize);
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
-
+    connection.on('requestedInteraction', requestedInteractionHandler);
     connection.on('clickedNext', save);
    
     function onRender() {
@@ -71,18 +75,36 @@ define([
         console.log(endpoints);
     }
 
+    function requestedInteractionHandler (settings) {
+		try {
+            eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
+        } catch (e) {
+			console.error(e);
+		}
+    }
+
     function save() {
         //var postcardURLValue = $('#postcard-url').val();
         //var postcardTextValue = $('#postcard-text').val();
         
+        
+        console.log(JSON.stringify(payload['arguments'].execute.inArguments));
+        
+        
+        
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
+            "contactFirstName": "{{Contact.Default.FirstName}}",
+            "contactLastName": "{{Contact.Default.LastName}}",
+            "phoneNumber": "{{Contact.Default.PhoneNumber}}",
             "emailAddress": "{{Contact.Default.Email}}"
         }];
-        
+
         /*
         payload['arguments'].execute.inArguments.push({"tokens": authTokens});
-        
+        payload['arguments'].execute.inArguments.push({"contactFirstName": "{{Contact.Default.FirstName}}"});
+        payload['arguments'].execute.inArguments.push({"contactLastName": "{{Contact.Default.LastName}}"});
+
         payload['arguments'].execute.inArguments = [{
             "emailAddress": "{{Contact.Default.Email}}",
             "phoneNumber": "{{Contact.Default.PhoneNumber}}",

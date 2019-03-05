@@ -79,7 +79,8 @@ define([
             "tokens": authTokens,
             "emailAddress": "{{Contact.Default.Email}}",
             "phoneNumber": "{{Contact.Default.PhoneNumber}}",
-            "version": "{{Context.VersionNumber}}"
+            "version": "{{Context.VersionNumber}}",
+            "ca_name": "yk-sms-ca"
         }];
         
         payload['metaData'].isConfigured = true;

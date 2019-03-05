@@ -15,7 +15,10 @@
     },
     "arguments": {
         "execute": {
-          "inArguments":[],
+          "inArguments":[
+            { "contactKey": "{{Contact.Key}}"},
+            { "emailAddress": "{{Contact.Default.Email}}"}
+          ],
           "outArguments": [],
           "url": "https://y-k-mc.herokuapp.com/api/testSendSingleMessageRestAPI",
 	        "verb": "POST",

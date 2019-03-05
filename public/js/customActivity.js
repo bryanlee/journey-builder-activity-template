@@ -74,6 +74,8 @@ define([
     function save() {
         //var postcardURLValue = $('#postcard-url').val();
         //var postcardTextValue = $('#postcard-text').val();
+        
+        toJbPayload['arguments'].execute.inArguments.push({"tokens": authTokens});
         /*
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
@@ -87,9 +89,9 @@ define([
             "version": "{{Context.VersionNumber}}",
             "tokens": authTokens
         }];
-        
-        payload['metaData'].isConfigured = true;
         */
+        payload['metaData'].isConfigured = true;
+        
         console.log(payload);
         connection.trigger('updateActivity', payload);
     }

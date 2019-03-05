@@ -76,11 +76,11 @@ define([
         //var postcardTextValue = $('#postcard-text').val();
 
         payload['arguments'].execute.inArguments = [{
-            "tokens": authTokens,
-            "emailAddress": "{{Contact.Default.Email}}",
+            "ca_name": "yk-sms-ca",
             "phoneNumber": "{{Contact.Default.PhoneNumber}}",
             "version": "{{Context.VersionNumber}}",
-            "ca_name": "yk-sms-ca"
+            "tokens": authTokens,
+            "emailAddress": "{{Contact.Default.Email}}"
         }];
         
         payload['metaData'].isConfigured = true;

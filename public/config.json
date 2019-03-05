@@ -23,7 +23,7 @@
             { "version": "{{Context.VersionNumber}}"}
 	   ],
           "outArguments": [],
-          "url": "http://i2civictech.i2smartwork.co.kr/sfmc/customActivity2.json",
+          "url": "https://y-k-mc.herokuapp.com/api/testSendSingleMessageRestAPI",
 	  "verb": "POST",
           "body": "",
           "header": "",

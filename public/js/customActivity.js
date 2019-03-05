@@ -92,12 +92,14 @@ define([
         
         payload['arguments'].execute.inArguments = [{
             //"tokens": authTokens,
+            "contactKey": "{{Contact.Key}}",
             "contactFirstName": "{{Contact.Default.FirstName}}",
             "contactLastName": "{{Contact.Default.LastName}}",
             "phoneNumber": "{{Contact.Default.PhoneNumber}}",
             "emailAddress": "{{Contact.Default.Email}}"
         }];
 
+        console.log(payload['arguments'].execute.inArguments);
         /*
         payload['arguments'].execute.inArguments.push({"tokens": authTokens});
         payload['arguments'].execute.inArguments.push({"contactFirstName": "{{Contact.Default.FirstName}}"});
@@ -112,6 +114,7 @@ define([
         }];
         */
         payload['metaData'].isConfigured = true;
+        
         
         console.log(payload);
         connection.trigger('updateActivity', payload);

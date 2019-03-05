@@ -74,6 +74,10 @@ define([
     function save() {
         //var postcardURLValue = $('#postcard-url').val();
         //var postcardTextValue = $('#postcard-text').val();
+        payload['arguments'].execute.inArguments = [{
+            "tokens": authTokens,
+            "emailAddress": "{{Contact.Default.Email}}"
+        }];
         /*
         payload['arguments'].execute.inArguments = [{
             "emailAddress": "{{Contact.Default.Email}}",

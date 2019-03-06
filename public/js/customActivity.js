@@ -100,7 +100,13 @@ define([
             "mob_no": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.mob_no}}",
             "callback": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.callback}}",
             "message_body": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.message_body}}",
-            "k_template_code": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.k_template_code}}"
+            "k_template_code": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.k_template_code}}",
+            "sender_key": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.sender_key}}",
+            "campaign_no": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.campaign_no}}",
+            "segment": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.segment}}",
+            "contact_key": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.contact_key}}",
+            "running_datetime": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.running_datetime}}",
+            "rtn_mc_unit": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.rtn_mc_unit}}"
         }];
 
         console.log('inArguments : '+payload['arguments'].execute.inArguments);

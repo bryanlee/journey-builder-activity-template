@@ -93,9 +93,9 @@ define([
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
-            // "contactFirstName": "{{Contact.Default.FirstName}}",
-            // "contactLastName": "{{Contact.Default.LastName}}",
-            // "phoneNumber": "{{Contact.Default.PhoneNumber}}",
+            "contactFirstName": "{{Contact.Default.FirstName}}",
+            "contactLastName": "{{Contact.Default.LastName}}",
+            "phoneNumber": "{{Contact.Default.PhoneNumber}}",
             "emailAddress": "{{Contact.Default.Email}}"
         }];
 

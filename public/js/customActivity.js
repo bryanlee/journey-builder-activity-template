@@ -89,7 +89,7 @@ define([
         console.log(JSON.stringify(payload['arguments'].execute.inArguments));
         
         
-        /*
+        
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
@@ -102,7 +102,7 @@ define([
             "message_body": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.message_body}}",
             "k_template_code": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.k_template_code}}"
         }];
-*/
+
         console.log('inArguments : '+payload['arguments'].execute.inArguments);
         /*
         payload['arguments'].execute.inArguments.push({"tokens": authTokens});

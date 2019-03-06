@@ -103,7 +103,7 @@ define([
             "k_template_code": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.k_template_code}}"
         }];
 */
-        console.log(payload['arguments'].execute.inArguments);
+        console.log('inArguments : '+payload['arguments'].execute.inArguments);
         /*
         payload['arguments'].execute.inArguments.push({"tokens": authTokens});
         payload['arguments'].execute.inArguments.push({"contactFirstName": "{{Contact.Default.FirstName}}"});

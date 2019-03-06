@@ -93,9 +93,9 @@ define([
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
-            "mob_no": "{{InteractionDefaults.mob_no}}",
-            "email": "{{InteractionDefaults.Email}}"
-            //{ "mob_no": "{{Contact.mob_no}}"},
+            "email": "{{InteractionDefaults.Email}}",
+            "mob_no": "{{InteractionDefaults.mob_no}}"
+
         }];
 
         console.log(payload['arguments'].execute.inArguments);

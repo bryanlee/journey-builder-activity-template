@@ -40,17 +40,17 @@
       "applicationExtensionKey": "caUlx0CCV5xzLnTqHLAZWba8c6Y_AzG1JX7gjGyVG8l2PVN8Gr1eDmr1wpQ0XFxjFR0SDhnZjhJriQAUauRf8XLzflfXxHBxGPQDEdhmYdhV6vvpazQKezvNCzNwv-xKfoBcHCSIBZqWVGaU43-mdG_SvZoo9k-QDNGcopr6qbvVsUr5_gVlAu7uVI2yDIa5vieCZbJiyUs0PjJVRkQg2OzCt72LImmpVwy3IIE65Rhj7qkmSZiY6PldoZOCXg2",
       "save": {
         "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/save",
-          "verb": "POST",
+        "verb": "POST",
         "useJwt": false
        },
        "publish": {
         "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/publish",
-           "verb": "POST",
+        "verb": "POST",
         "useJwt": false
        },
       "stop": {
         "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/stop",
-           "verb": "POST",
+        "verb": "POST",
         "useJwt": false
       },
       "validate": {

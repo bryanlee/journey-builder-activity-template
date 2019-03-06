@@ -94,8 +94,13 @@ define([
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
             "email": "{{InteractionDefaults.Email}}",
-            "mob_no": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.mob_no}}"
-
+            "sj_agent_id": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.sj_agent_id}}",
+            "sj_agent_cid": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.sj_agent_cid}}",
+            "msg_type": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.callback}}",
+            "mob_no": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.mob_no}}",
+            "callback": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.callback}}",
+            "message_body": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.message_body}}",
+            "k_template_code": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.k_template_code}}"
         }];
 
         console.log(payload['arguments'].execute.inArguments);

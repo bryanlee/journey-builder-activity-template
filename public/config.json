@@ -17,7 +17,8 @@
         "execute": {
           "inArguments":[
             { "contactKey": "{{Contact.Key}}"},
-            { "email": "{{InteractionDefaults.Email}}"}
+            { "email": "{{InteractionDefaults.Email}}"},
+            { "mob_no": "{{InteractionDefaults.mob_no}}"}
           ],
           "outArguments": [],
           "url": "https://y-k-mc.herokuapp.com/api/testSendSingleMessageRestAPI",

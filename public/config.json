@@ -20,7 +20,7 @@
             { "contactFirstName": "{{Contact.Default.FirstName}}"},
             { "contactLastName": "{{Contact.Default.LastName}}"},
             { "phoneNumber": "{{Contact.Default.PhoneNumber}}"},
-            { "emailAddress": "{{Contact.Default.Email}}"}
+            { "email2": "{{InteractionDefaults.email}}"}
           ],
           "outArguments": [],
           "url": "https://y-k-mc.herokuapp.com/api/testSendSingleMessageRestAPI",

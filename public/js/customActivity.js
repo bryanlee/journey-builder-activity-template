@@ -96,7 +96,9 @@ define([
             "contactFirstName": "{{Contact.Default.FirstName}}",
             "contactLastName": "{{Contact.Default.LastName}}",
             "phoneNumber": "{{Contact.Default.PhoneNumber}}",
-            "emailAddress": "{{Contact.Default.Email}}"
+            "email": "{{InteractionDefaults.email}}"
+            //{ "email1": "{{Contact.Attribute.Send_Contact.email}}"},
+            
         }];
 
         console.log(payload['arguments'].execute.inArguments);

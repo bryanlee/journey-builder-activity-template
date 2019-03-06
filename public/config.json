@@ -17,6 +17,9 @@
         "execute": {
           "inArguments":[
             { "contactKey": "{{Contact.Key}}"},
+            { "contactFirstName": "{{Contact.Default.FirstName}}"},
+            { "contactLastName": "{{Contact.Default.LastName}}"},
+            { "phoneNumber": "{{Contact.Default.PhoneNumber}}"},
             { "emailAddress": "{{Contact.Default.Email}}"}
           ],
           "outArguments": [],

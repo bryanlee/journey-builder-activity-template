@@ -94,7 +94,7 @@ define([
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
             "email": "{{InteractionDefaults.Email}}",
-            "mob_no": "{{InteractionDefaults.Phone}}"
+            "mob_no": "{{Event.15223b12-80be-4b18-a107-7be21e4b01ea.mob_no}}"
 
         }];
 

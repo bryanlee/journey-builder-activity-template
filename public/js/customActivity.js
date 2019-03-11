@@ -94,19 +94,19 @@ define([
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
             "email": "{{InteractionDefaults.Email}}",
-            "sj_agent_id": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.sj_agent_id}}",
-            "sj_agent_cid": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.sj_agent_cid}}",
-            "msg_type": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.callback}}",
-            "mob_no": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.mob_no}}",
-            "callback": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.callback}}",
-            "message_body": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.message_body}}",
-            "k_template_code": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.k_template_code}}",
-            "sender_key": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.sender_key}}",
-            "campaign_no": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.campaign_no}}",
-            "segment": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.segment}}",
-            "contact_key": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.contact_key}}",
-            "running_datetime": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.running_datetime}}",
-            "rtn_mc_unit": "{{Interaction.15223b12-80be-4b18-a107-7be21e4b01ea.rtn_mc_unit}}"
+            "sj_agent_id": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.sj_agent_id}}",
+            "sj_agent_cid": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.sj_agent_cid}}",
+            "msg_type": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.callback}}",
+            "mob_no": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.mob_no}}",
+            "callback": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.callback}}",
+            "message_body": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.message_body}}",
+            "k_template_code": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.k_template_code}}",
+            "sender_key": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.sender_key}}",
+            "campaign_no": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.campaign_no}}",
+            "segment": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.segment}}",
+            "contact_key": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.contact_key}}",
+            "running_datetime": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.running_datetime}}",
+            "rtn_mc_unit": "{{Interaction.DEAudience-1f4362fd-e59a-b35b-bed7-0249da48a10d.rtn_mc_unit}}"
         }];
 
         console.log('inArguments : '+payload['arguments'].execute.inArguments);

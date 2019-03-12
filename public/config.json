@@ -33,7 +33,7 @@
             { "rtn_mc_unit": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.rtn_mc_unit}}"}
           ],
           "outArguments": [],
-          "url": "https://y-k-mc-dev.herokuapp.com/api/sendSingleMessageRestAPI",
+          "url": "https://y-k-mc-dev.herokuapp.com/api/sendSingleTestMsgRestAPI",
 	        "verb": "POST",
           "body": "",
           "header": "",

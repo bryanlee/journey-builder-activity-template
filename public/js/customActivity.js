@@ -237,7 +237,8 @@ define([
         console.log("message_body :"+message_body);
 
 		payload['arguments'] = payload['arguments'] || {};
-		payload['arguments'].execute = payload['arguments'].execute || {};
+        payload['arguments'].execute = payload['arguments'].execute || {};
+        console.log("inArguments :"+payload['arguments'].execute.inArguments[0].tokens);
 
 		var idField = deFields.length > 0 ? $('#select-id-dropdown').val() : $('#select-id').val();
 

@@ -191,9 +191,9 @@ define([
 
 	function showStep (step, stepIndex) {
         console.log("showStep : step :"+ JSON.stringify(step) + "/ stepIndex :"+stepIndex);
-		if (stepIndex && !step) {
-			step = steps[stepIndex - 1];
-		}
+		// if (stepIndex && !step) {
+		// 	step = steps[stepIndex - 1];
+		// }
 
 		currentStep = step;
 

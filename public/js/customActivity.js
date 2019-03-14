@@ -238,8 +238,8 @@ define([
 
 		payload['arguments'] = payload['arguments'] || {};
         payload['arguments'].execute = payload['arguments'].execute || {};
-        console.log("inArguments tokens :"+payload['arguments'].execute.inArguments[0].tokens);
-        console.log("inArguments sj_agent_id :"+payload['arguments'].execute.inArguments[0].sj_agent_id);
+        console.log("inArguments tokens :"+JSON.stringify(payload['arguments'].execute.inArguments[0].tokens));
+        console.log("inArguments sj_agent_id :"+JSON.stringify(payload['arguments'].execute.inArguments[0].sj_agent_id));
         //MC Rest ContentBuilder record
         // var content = httpGetContentBuilder(payload['arguments'].execute.inArguments[0].tokens, payload['arguments'].execute.inArguments[0].sj_agent_id);
 

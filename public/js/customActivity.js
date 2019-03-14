@@ -171,7 +171,7 @@ define([
     var HttpClient = function() {
         this.get = function(aUrl, aCallback) {
             var anHttpRequest = new XMLHttpRequest();
-            anHttpRequest.setRequestHeader("Authorization","Bearer "+accessToeken);
+            // anHttpRequest.setRequestHeader("Authorization","Bearer "+accessToeken);
             console.log('HttpClient Request url :'+ aUrl);
             console.log('HttpClient ResponseHeader :'+ JSON.stringify(anHttpRequest.getResponseHeader));
             anHttpRequest.onreadystatechange = function() { 

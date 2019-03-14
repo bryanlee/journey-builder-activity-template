@@ -189,8 +189,8 @@ define([
 		connection.trigger('ready');
 	}
 
-	function showStep (step, stepIndex) {
-        console.log("showStep : step :"+ JSON.stringify(step) + "/ stepIndex :"+stepIndex);
+	function showStep (step) {
+        console.log("showStep : step :"+ JSON.stringify(step));
 		// if (stepIndex && !step) {
 		// 	step = steps[stepIndex - 1];
 		// }

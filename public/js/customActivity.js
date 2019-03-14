@@ -290,10 +290,12 @@ define([
 
     function httpGetContentBuilder(token, contentBuilderId)
     {
-        var baseUrl = 'https://mcc8r6n8gy525r7zcyfjgb5g7hvq.rest.marketingcloudapis.com//asset/v1/content/assets/';
+        var restUrl = "https://mcc8r6n8gy525r7zcyfjgb5g7hvq.rest.marketingcloudapis.com//asset/v1/content/assets/"+contentBuilderId;
+        console.log("httpGetContentBuilder restUrl : "+restUrl);
+        console.log("Authorization : Bearer "+token);
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.setRequestHeader("Authorization","Bearer "+token);
-        xmlHttp.open( "GET", theUrl+contentBuilderId, false ); // false for synchronous request
+        xmlHttp.open( "GET", restUrl, false ); // false for synchronous request
         xmlHttp.send( null );
         return xmlHttp.responseText;
     }

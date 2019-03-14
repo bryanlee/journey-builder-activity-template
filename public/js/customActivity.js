@@ -234,6 +234,9 @@ define([
             $('#jb-name').val(jbName);
             $('#jb-version').val(jbVersion);
             $('#select-entryevent-defkey').val(eventDefinitionKey);
+
+            console.log("inArguments sj_agent_id :"+JSON.stringify(payload['arguments'].execute.inArguments[0].sj_agent_id));
+            
 		} catch (e) {
 			console.error(e);
 			

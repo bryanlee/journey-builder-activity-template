@@ -148,10 +148,10 @@ define([
 
     $(window).ready(function () {
         connection.trigger('ready');
-        connection.on('requestedTokens', onGetTokens);
-        connection.on('requestedEndpoints', onGetEndpoints);
 		connection.trigger('requestInteraction');
-	});
+    });
+    
+    
 
     function onGetTokens(tokens) {
         console.log("onGetTokens :"+JSON.stringify(tokens));
@@ -270,18 +270,18 @@ define([
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
             "email": "{{InteractionDefaults.Email}}",
-            "sj_agent_id": "{{Event."+entryDefinitionkey+".sj_agent_id}}",
-            "sj_agent_cid": "{{Event."+entryDefinitionkey+".sj_agent_cid}}",
-            "msg_type": "{{Event."+entryDefinitionkey+".callback}}",
-            "mob_no": "{{Event."+entryDefinitionkey+".mob_no}}",
-            "callback": "{{Event."+entryDefinitionkey+".callback}}",
+            "sj_agent_id": "{{Event."+eventDefinitionKey+".sj_agent_id}}",
+            "sj_agent_cid": "{{Event."+eventDefinitionKey+".sj_agent_cid}}",
+            "msg_type": "{{Event."+eventDefinitionKey+".callback}}",
+            "mob_no": "{{Event."+eventDefinitionKey+".mob_no}}",
+            "callback": "{{Event."+eventDefinitionKey+".callback}}",
             "message_body": message_body,
-            "k_template_code": "{{Event."+entryDefinitionkey+".k_template_code}}",
-            "sender_key": "{{Event."+entryDefinitionkey+".sender_key}}",
-            "campaign_no": "{{Event."+entryDefinitionkey+".campaign_no}}",
-            "segment": "{{Event."+entryDefinitionkey+".segment}}",
-            "contact_key": "{{Event."+entryDefinitionkey+".contact_key}}",
-            "running_datetime": "{{Event."+entryDefinitionkey+".running_datetime}}",
+            "k_template_code": "{{Event."+eventDefinitionKey+".k_template_code}}",
+            "sender_key": "{{Event."+eventDefinitionKey+".sender_key}}",
+            "campaign_no": "{{Event."+eventDefinitionKey+".campaign_no}}",
+            "segment": "{{Event."+eventDefinitionKey+".segment}}",
+            "contact_key": "{{Event."+eventDefinitionKey+".contact_key}}",
+            "running_datetime": "{{Event."+eventDefinitionKey+".running_datetime}}",
             "rtn_mc_unit": "test"
         }];
 
@@ -293,10 +293,12 @@ define([
 		connection.trigger('updateActivity', payload);
 	}
 
+    connection.on('requestedTokens', onGetTokens);
+    connection.on('requestedEndpoints', onGetEndpoints);
 	connection.on('initActivity', initialize);
 	connection.on('clickedNext', onClickedNext);
 	connection.on('clickedBack', onClickedBack);
-	connection.on('gotoStep', save);
+	connection.on('gotoStep', onGotoStep);
 	connection.on('requestedInteraction', requestedInteractionHandler);
 
     

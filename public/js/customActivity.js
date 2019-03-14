@@ -16,7 +16,7 @@ define([
     var payload = {};
     var steps = [
 		{'key': 'step1', 'label': 'Event Definition Key'},
-		{'key': 'step2', 'label': 'ID Selection'}
+		{'key': 'step2', 'label': 'Content Builder'}
 	];
     var eventDefinitionKey = '';
     var currentStep = steps[0].key;

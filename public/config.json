@@ -66,8 +66,8 @@
       }
     },
     "wizardSteps": [
-        { "label": "eventdefinitionkey", "key": "step1" },
-        { "label": "idselection", "key": "step2" }
+        { "label": "EventDefinitionKey", "key": "step1" },
+        { "label": "Content Builder", "key": "step2" }
     ],
     "userInterfaces": {
         "configModal": {

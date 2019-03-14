@@ -190,7 +190,7 @@ define([
 	}
 
 	function showStep (step, stepIndex) {
-        console.log("showStep : step :"+ JSON.stringify(step) + "/ stepIndex :"+JSON.stringify(stepIndex));
+        console.log("showStep : step :"+ JSON.stringify(step) + "/ stepIndex :"+stepIndex);
 		if (stepIndex && !step) {
 			step = steps[stepIndex - 1];
 		}
@@ -216,29 +216,30 @@ define([
             console.log("requestedInteractionHandler : settings :"+ JSON.stringify(settings));
 			eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
 			$('#select-entryevent-defkey').val(eventDefinitionKey);
-
-			if (settings.triggers[0].type === 'SalesforceObjectTriggerV2' &&
+            
+			if (settings.triggers[0].type === 'EmailAudience' &&
 					settings.triggers[0].configurationArguments &&
 					settings.triggers[0].configurationArguments.eventDataConfig) {
 
 				// This workaround is necessary as Salesforce occasionally returns the eventDataConfig-object as string
-				if (typeof settings.triggers[0].configurationArguments.eventDataConfig === 'stirng' ||
-							!settings.triggers[0].configurationArguments.eventDataConfig.objects) {
-						settings.triggers[0].configurationArguments.eventDataConfig = JSON.parse(settings.triggers[0].configurationArguments.eventDataConfig);
-				}
+				// if (typeof settings.triggers[0].configurationArguments.eventDataConfig === 'stirng' ||
+				// 			!settings.triggers[0].configurationArguments.eventDataConfig.objects) {
+                //         settings.triggers[0].configurationArguments.eventDataConfig = 
+                //         JSON.parse(settings.triggers[0].configurationArguments.eventDataConfig);
+				// }
 
-				settings.triggers[0].configurationArguments.eventDataConfig.objects.forEach((obj) => {
-					deFields = deFields.concat(obj.fields.map((fieldName) => {
-						return obj.dePrefix + fieldName;
-					}));
-				});
+				// settings.triggers[0].configurationArguments.eventDataConfig.objects.forEach((obj) => {
+				// 	deFields = deFields.concat(obj.fields.map((fieldName) => {
+				// 		return obj.dePrefix + fieldName;
+				// 	}));
+				// });
 
-				deFields.forEach((option) => {
-					$('#select-id-dropdown').append($('<option>', {
-						value: option,
-						text: option
-					}));
-				});
+				// deFields.forEach((option) => {
+				// 	$('#select-id-dropdown').append($('<option>', {
+				// 		value: option,
+				// 		text: option
+				// 	}));
+				// });
 
 				$('#select-id').hide();
 				$('#select-id-dropdown').show();

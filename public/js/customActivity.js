@@ -148,9 +148,9 @@ define([
 
     $(window).ready(function () {
         connection.trigger('ready');
-        connection.trigger('requestInteraction');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
+        connection.trigger('requestInteraction');
     });
 
     connection.on('initActivity', initialize);
@@ -235,8 +235,13 @@ define([
             $('#jb-version').val(jbVersion);
             $('#select-entryevent-defkey').val(eventDefinitionKey);
 
-            console.log("inArguments sj_agent_id :"+JSON.stringify(payload['arguments'].execute.inArguments[0].sj_agent_id));
+            console.log("inArguments token :"+payload['arguments'].execute.inArguments[0].tokens.fuel2token);    
+            console.log("inArguments sj_agent_id :"+payload['arguments'].execute.inArguments[0].sj_agent_id);
             
+            //MC Rest ContentBuilder record
+            // var content = httpGetContentBuilder(payload['arguments'].execute.inArguments[0].tokens.fuel2token, payload['arguments'].execute.inArguments[0].sj_agent_id);
+
+
 		} catch (e) {
 			console.error(e);
 			
@@ -251,13 +256,9 @@ define([
 
 		payload['arguments'] = payload['arguments'] || {};
         payload['arguments'].execute = payload['arguments'].execute || {};
-        console.log("inArguments tokens :"+JSON.stringify(payload['arguments'].execute.inArguments[0].tokens));
+        console.log("inArguments tokens :"+JSON.stringify(payload['arguments'].execute.inArguments[0].tokens.fuel2token));
         console.log("inArguments sj_agent_id :"+JSON.stringify(payload['arguments'].execute.inArguments[0].sj_agent_id));
-        //MC Rest ContentBuilder record
-        // var content = httpGetContentBuilder(payload['arguments'].execute.inArguments[0].tokens, payload['arguments'].execute.inArguments[0].sj_agent_id);
-
-		// var idField = deFields.length > 0 ? $('#select-id-dropdown').val() : $('#select-id').val();
-
+        
 		payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",

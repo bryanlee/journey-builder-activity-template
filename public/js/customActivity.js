@@ -263,7 +263,7 @@ define([
 	}
 
 	function save () {
-        var message_body = $('content-body').val();
+        var message_body = $('#content-body').val();
         console.log("message_body :"+message_body);
 
 		payload['arguments'] = payload['arguments'] || {};

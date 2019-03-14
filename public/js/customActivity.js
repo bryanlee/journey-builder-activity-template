@@ -227,7 +227,8 @@ define([
 
 	function requestedInteractionHandler (settings) {
 		try {
-            console.log("requestedInteractionHandler : settings :"+ JSON.stringify(settings));
+            console.log("call requestedInteractionHandler");
+            // console.log("requestedInteractionHandler : settings :"+ JSON.stringify(settings));
             var jbName = settings.name;
             var jbVersion = settings.version;
             eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;

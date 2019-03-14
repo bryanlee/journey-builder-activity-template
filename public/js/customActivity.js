@@ -146,12 +146,22 @@ define([
     }
     */
 
-    $(window).ready(function () {
-        console.log("ready");
-        connection.trigger('ready');
-        console.log("requestInteraction");
-		connection.trigger('requestInteraction');
-    });
+    $(window).ready(onRender);
+
+    console.log("ready");
+    connection.trigger('ready');
+    connection.on('initActivity', initialize);
+    console.log("requestedTokens");
+    connection.on('requestedTokens', onGetTokens);
+    console.log("requestedEndpoints");
+    connection.on('requestedEndpoints', onGetEndpoints);
+    connection.on('gotoStep', onGotoStep);
+    connection.on('clickedNext', onClickedNext);
+	connection.on('clickedBack', onClickedBack);
+	connection.on('requestedInteraction', requestedInteractionHandler);
+    // $(window).ready(function () {
+        
+    // });
     
     function onGetTokens(tokens) {
         console.log("onGetTokens :"+JSON.stringify(tokens));
@@ -166,7 +176,10 @@ define([
         console.log("initialize :"+JSON.stringify(data));
 		if (data) {
 			payload = data;
-		}
+        }
+        
+        console.log("requestInteraction");
+        connection.trigger('requestInteraction');
 	}
 
     function onGotoStep (step) {
@@ -243,7 +256,7 @@ define([
         //MC Rest ContentBuilder record
         // var content = httpGetContentBuilder(payload['arguments'].execute.inArguments[0].tokens, payload['arguments'].execute.inArguments[0].sj_agent_id);
 
-		var idField = deFields.length > 0 ? $('#select-id-dropdown').val() : $('#select-id').val();
+		// var idField = deFields.length > 0 ? $('#select-id-dropdown').val() : $('#select-id').val();
 
 		payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
@@ -270,17 +283,9 @@ define([
 		console.log(JSON.stringify(payload));
 
 		connection.trigger('updateActivity', payload);
-	}
-
-    connection.on('initActivity', initialize);
-    console.log("requestedTokens");
-    connection.on('requestedTokens', onGetTokens);
-    console.log("requestedEndpoints");
-    connection.on('requestedEndpoints', onGetEndpoints);
-    connection.on('gotoStep', onGotoStep);
-    connection.on('clickedNext', onClickedNext);
-	connection.on('clickedBack', onClickedBack);
-	connection.on('requestedInteraction', requestedInteractionHandler);
+    }
+    
+    
 
     function httpGetContentBuilder(token, contentBuilderId)
     {

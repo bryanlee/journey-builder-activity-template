@@ -298,7 +298,7 @@ define([
 	connection.on('initActivity', initialize);
 	connection.on('clickedNext', onClickedNext);
 	connection.on('clickedBack', onClickedBack);
-	// connection.on('gotoStep', onGotoStep);
+	connection.on('gotoStep', onGotoStep);
 	connection.on('requestedInteraction', requestedInteractionHandler);
 
     

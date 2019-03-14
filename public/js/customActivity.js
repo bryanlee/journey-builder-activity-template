@@ -14,8 +14,15 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
+    var steps = [
+		{'key': 'eventdefinitionkey', 'label': 'Event Definition Key'},
+		{'key': 'idselection', 'label': 'ID Selection'}
+	];
     var eventDefinitionKey = '';
+    var currentStep = steps[0].key;
+	var deFields = [];
 
+    /*
     $(window).ready(onRender);
 
     connection.on('initActivity', initialize);
@@ -27,9 +34,10 @@ define([
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
-
+        connection.trigger('requestInteraction');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
+
 
     }
 
@@ -64,6 +72,14 @@ define([
         });
     }
 
+    function onClickedNext () {
+		if (currentStep.key === 'idselection') {
+			save();
+		} else {
+			connection.trigger('nextStep');
+		}
+	}
+
     function onGetTokens(tokens) {
         console.log(tokens);
         authTokens = tokens;
@@ -93,20 +109,18 @@ define([
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
             "email": "{{InteractionDefaults.Email}}",
-            // "sj_agent_id": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.sj_agent_id}}",
             "sj_agent_id": "{{Event."+entryDefinitionkey+".sj_agent_id}}",
-            "sj_agent_cid": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.sj_agent_cid}}",
-            "msg_type": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.callback}}",
-            "mob_no": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.mob_no}}",
-            "callback": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.callback}}",
-            // "message_body": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.message_body}}",
+            "sj_agent_cid": "{{Event."+entryDefinitionkey+".sj_agent_cid}}",
+            "msg_type": "{{Event."+entryDefinitionkey+".callback}}",
+            "mob_no": "{{Event."+entryDefinitionkey+".mob_no}}",
+            "callback": "{{Event."+entryDefinitionkey+".callback}}",
             "message_body": message_body,
-            "k_template_code": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.k_template_code}}",
-            "sender_key": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.sender_key}}",
-            "campaign_no": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.campaign_no}}",
-            "segment": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.segment}}",
-            "contact_key": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.contact_key}}",
-            "running_datetime": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.running_datetime}}",
+            "k_template_code": "{{Event."+entryDefinitionkey+".k_template_code}}",
+            "sender_key": "{{Event."+entryDefinitionkey+".sender_key}}",
+            "campaign_no": "{{Event."+entryDefinitionkey+".campaign_no}}",
+            "segment": "{{Event."+entryDefinitionkey+".segment}}",
+            "contact_key": "{{Event."+entryDefinitionkey+".contact_key}}",
+            "running_datetime": "{{Event."+entryDefinitionkey+".running_datetime}}",
             "rtn_mc_unit": "test"
         }];
 
@@ -123,13 +137,143 @@ define([
             "version": "{{Context.VersionNumber}}",
             "tokens": authTokens
         }];
-        */
+        
         payload['metaData'].isConfigured = true;
         
         
         console.log(payload);
         connection.trigger('updateActivity', payload);
     }
+    */
+
+    $(window).ready(function () {
+		connection.trigger('ready');
+		connection.trigger('requestInteraction');
+	});
+
+	function initialize (data) {
+		if (data) {
+			payload = data;
+		}
+	}
+
+	function onClickedNext () {
+		if (currentStep.key === 'idselection') {
+			save();
+		} else {
+			connection.trigger('nextStep');
+		}
+	}
+
+	function onClickedBack () {
+		connection.trigger('prevStep');
+	}
+
+	function onGotoStep (step) {
+		showStep(step);
+		connection.trigger('ready');
+	}
+
+	function showStep (step, stepIndex) {
+		if (stepIndex && !step) {
+			step = steps[stepIndex - 1];
+		}
+
+		currentStep = step;
+
+		$('.step').hide();
+
+		switch (currentStep.key) {
+		case 'eventdefinitionkey':
+			$('#step1').show();
+			$('#step1 input').focus();
+			break;
+		case 'idselection':
+			$('#step2').show();
+			$('#step2 input').focus();
+			break;
+		}
+	}
+
+	function requestedInteractionHandler (settings) {
+		try {
+			eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
+			$('#select-entryevent-defkey').val(eventDefinitionKey);
+
+			if (settings.triggers[0].type === 'SalesforceObjectTriggerV2' &&
+					settings.triggers[0].configurationArguments &&
+					settings.triggers[0].configurationArguments.eventDataConfig) {
+
+				// This workaround is necessary as Salesforce occasionally returns the eventDataConfig-object as string
+				if (typeof settings.triggers[0].configurationArguments.eventDataConfig === 'stirng' ||
+							!settings.triggers[0].configurationArguments.eventDataConfig.objects) {
+						settings.triggers[0].configurationArguments.eventDataConfig = JSON.parse(settings.triggers[0].configurationArguments.eventDataConfig);
+				}
+
+				settings.triggers[0].configurationArguments.eventDataConfig.objects.forEach((obj) => {
+					deFields = deFields.concat(obj.fields.map((fieldName) => {
+						return obj.dePrefix + fieldName;
+					}));
+				});
+
+				deFields.forEach((option) => {
+					$('#select-id-dropdown').append($('<option>', {
+						value: option,
+						text: option
+					}));
+				});
+
+				$('#select-id').hide();
+				$('#select-id-dropdown').show();
+			} else {
+				$('#select-id-dropdown').hide();
+				$('#select-id').show();
+			}
+		} catch (e) {
+			console.error(e);
+			$('#select-id-dropdown').hide();
+			$('#select-id').show();
+		}
+	}
+
+	function save () {
+		payload['arguments'] = payload['arguments'] || {};
+		payload['arguments'].execute = payload['arguments'].execute || {};
+
+		var idField = deFields.length > 0 ? $('#select-id-dropdown').val() : $('#select-id').val();
+
+		payload['arguments'].execute.inArguments = [{
+            "tokens": authTokens,
+            "contactKey": "{{Contact.Key}}",
+            "email": "{{InteractionDefaults.Email}}",
+            "sj_agent_id": "{{Event."+entryDefinitionkey+".sj_agent_id}}",
+            "sj_agent_cid": "{{Event."+entryDefinitionkey+".sj_agent_cid}}",
+            "msg_type": "{{Event."+entryDefinitionkey+".callback}}",
+            "mob_no": "{{Event."+entryDefinitionkey+".mob_no}}",
+            "callback": "{{Event."+entryDefinitionkey+".callback}}",
+            "message_body": message_body,
+            "k_template_code": "{{Event."+entryDefinitionkey+".k_template_code}}",
+            "sender_key": "{{Event."+entryDefinitionkey+".sender_key}}",
+            "campaign_no": "{{Event."+entryDefinitionkey+".campaign_no}}",
+            "segment": "{{Event."+entryDefinitionkey+".segment}}",
+            "contact_key": "{{Event."+entryDefinitionkey+".contact_key}}",
+            "running_datetime": "{{Event."+entryDefinitionkey+".running_datetime}}",
+            "rtn_mc_unit": "test"
+        }];
+
+		payload['metaData'] = payload['metaData'] || {};
+		payload['metaData'].isConfigured = true;
+
+		console.log(JSON.stringify(payload));
+
+		connection.trigger('updateActivity', payload);
+	}
+
+	connection.on('initActivity', initialize);
+	connection.on('clickedNext', onClickedNext);
+	connection.on('clickedBack', onClickedBack);
+	connection.on('gotoStep', onGotoStep);
+	connection.on('requestedInteraction', requestedInteractionHandler);
 
     
 });

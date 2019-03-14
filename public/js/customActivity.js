@@ -147,17 +147,30 @@ define([
     */
 
     $(window).ready(function () {
-		connection.trigger('ready');
+        connection.trigger('ready');
+        connection.on('requestedTokens', onGetTokens);
+        connection.on('requestedEndpoints', onGetEndpoints);
 		connection.trigger('requestInteraction');
 	});
 
+    function onGetTokens(tokens) {
+        console.log("onGetTokens :"+tokens);
+        authTokens = tokens;
+    }
+
+    function onGetEndpoints(endpoints) {
+        console.log("onGetEndpoints :"+endpoints);
+    }
+
 	function initialize (data) {
+        console.log("initialize :"+data);
 		if (data) {
 			payload = data;
 		}
 	}
 
 	function onClickedNext () {
+        console.log("onClickedNext :"+currentStep.key);
 		if (currentStep.key === 'idselection') {
 			save();
 		} else {
@@ -166,15 +179,18 @@ define([
 	}
 
 	function onClickedBack () {
+        console.log("onClickedBack :");
 		connection.trigger('prevStep');
 	}
 
 	function onGotoStep (step) {
+        console.log("onGotoStep :"+step);
 		showStep(step);
 		connection.trigger('ready');
 	}
 
 	function showStep (step, stepIndex) {
+        console.log("showStep : step :"+ step + "/ stepIndex :"+stepIndex);
 		if (stepIndex && !step) {
 			step = steps[stepIndex - 1];
 		}
@@ -197,6 +213,7 @@ define([
 
 	function requestedInteractionHandler (settings) {
 		try {
+            console.log("requestedInteractionHandler : settings :"+ settings);
 			eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
 			$('#select-entryevent-defkey').val(eventDefinitionKey);
 

@@ -198,13 +198,15 @@ define([
 		currentStep = step;
 
 		$('.step').hide();
-
+        console.log("currentStep.key :"+currentStep.key);
 		switch (currentStep.key) {
-		case 'eventdefinitionkey':
+        case 'eventdefinitionkey':
+            console.log("currentStep.key : eventdefinitionkey");
 			$('#step1').show();
 			$('#step1 input').focus();
 			break;
-		case 'idselection':
+        case 'idselection':
+            console.log("currentStep.key : idselection");
 			$('#step2').show();
 			$('#step2 input').focus();
 			break;

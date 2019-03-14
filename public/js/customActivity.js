@@ -15,8 +15,8 @@ define([
     var authTokens = {};
     var payload = {};
     var steps = [
-		{'key': 'eventdefinitionkey', 'label': 'Event Definition Key'},
-		{'key': 'idselection', 'label': 'ID Selection'}
+		{'key': 'step1', 'label': 'Event Definition Key'},
+		{'key': 'step2', 'label': 'ID Selection'}
 	];
     var eventDefinitionKey = '';
     var currentStep = steps[0].key;

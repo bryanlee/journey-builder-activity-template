@@ -163,7 +163,7 @@ define([
     }
 
 	function initialize (data) {
-        console.log("initialize :"+stringfy.JSON(data);
+        console.log("initialize :"+stringfy.JSON(data));
 		if (data) {
 			payload = data;
 		}

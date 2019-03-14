@@ -146,22 +146,22 @@ define([
     }
     */
 
-    $(window).ready(onRender);
+    $(window).ready(function () {
+        connection.trigger('ready');
+        connection.trigger('requestInteraction');
+        connection.trigger('requestTokens');
+        connection.trigger('requestEndpoints');
+    });
 
-    console.log("ready");
-    connection.trigger('ready');
     connection.on('initActivity', initialize);
-    console.log("requestedTokens");
     connection.on('requestedTokens', onGetTokens);
-    console.log("requestedEndpoints");
     connection.on('requestedEndpoints', onGetEndpoints);
     connection.on('gotoStep', onGotoStep);
     connection.on('clickedNext', onClickedNext);
 	connection.on('clickedBack', onClickedBack);
 	connection.on('requestedInteraction', requestedInteractionHandler);
-    // $(window).ready(function () {
-        
-    // });
+    
+
     
     function onGetTokens(tokens) {
         console.log("onGetTokens :"+JSON.stringify(tokens));
@@ -177,9 +177,6 @@ define([
 		if (data) {
 			payload = data;
         }
-        
-        console.log("requestInteraction");
-        connection.trigger('requestInteraction');
 	}
 
     function onGotoStep (step) {

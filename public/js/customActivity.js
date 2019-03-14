@@ -171,7 +171,7 @@ define([
 
 	function onClickedNext () {
         console.log("onClickedNext :"+currentStep.key);
-		if (currentStep.key === 'idselection') {
+		if (currentStep.key === 'step2') {
 			save();
 		} else {
 			connection.trigger('nextStep');
@@ -298,7 +298,7 @@ define([
 	connection.on('initActivity', initialize);
 	connection.on('clickedNext', onClickedNext);
 	connection.on('clickedBack', onClickedBack);
-	connection.on('gotoStep', onGotoStep);
+	// connection.on('gotoStep', onGotoStep);
 	connection.on('requestedInteraction', requestedInteractionHandler);
 
     

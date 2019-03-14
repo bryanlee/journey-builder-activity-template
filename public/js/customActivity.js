@@ -147,12 +147,12 @@ define([
     */
 
     $(window).ready(function () {
+        console.log("ready");
         connection.trigger('ready');
+        console.log("requestInteraction");
 		connection.trigger('requestInteraction');
     });
     
-    
-
     function onGetTokens(tokens) {
         console.log("onGetTokens :"+JSON.stringify(tokens));
         authTokens = tokens;
@@ -268,9 +268,11 @@ define([
 		connection.trigger('updateActivity', payload);
 	}
 
+    connection.on('initActivity', initialize);
+    console.log("requestedTokens");
     connection.on('requestedTokens', onGetTokens);
+    console.log("requestedEndpoints");
     connection.on('requestedEndpoints', onGetEndpoints);
-	connection.on('initActivity', initialize);
     connection.on('gotoStep', onGotoStep);
     connection.on('clickedNext', onClickedNext);
 	connection.on('clickedBack', onClickedBack);

@@ -121,7 +121,7 @@ define([
             var client = new HttpClient();
             client.get('https://mcc8r6n8gy525r7zcyfjgb5g7hvq.rest.marketingcloudapis.com//asset/v1/content/assets/4309', function(response) {
                 // do something with response
-                console.log("contentResponse :"+JSON.stringify(response.content));
+                console.log("contentResponse :"+JSON.stringify(response));
             });
             
 		} catch (e) {
@@ -167,21 +167,6 @@ define([
     }
     
     
-
-    function httpGetContentBuilder(token, contentBuilderId)
-    {
-        var restUrl = "https://mcc8r6n8gy525r7zcyfjgb5g7hvq.rest.marketingcloudapis.com//asset/v1/content/assets/"+contentBuilderId;
-        console.log("httpGetContentBuilder restUrl : "+restUrl);
-        console.log("Authorization : Bearer "+token);
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.setRequestHeader("Authorization","Bearer "+token);
-        xmlHttp.open( "GET", restUrl, false ); // false for synchronous request
-        xmlHttp.send( null );
-        return xmlHttp.responseText;
-
-        
-    }
-
     var HttpClient = function() {
         this.get = function(aUrl, aCallback) {
             var anHttpRequest = new XMLHttpRequest();

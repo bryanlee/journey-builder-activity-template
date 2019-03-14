@@ -238,7 +238,8 @@ define([
 
             console.log("inArguments token :"+payload['arguments'].execute.inArguments[0].tokens.fuel2token);    
             console.log("inArguments sj_agent_id :"+payload['arguments'].execute.inArguments[0].sj_agent_id);
-            
+            $('#content-id').val(payload['arguments'].execute.inArguments[0].sj_agent_id);
+            $('#content-body').val(payload['arguments'].execute.inArguments[0].tokens.fuel2token);
             //MC Rest ContentBuilder record
             // var content = httpGetContentBuilder(payload['arguments'].execute.inArguments[0].tokens.fuel2token, payload['arguments'].execute.inArguments[0].sj_agent_id);
 
@@ -252,13 +253,11 @@ define([
 	function save () {
         
         //TODO get  content bilder message body by id rest api?
-        var message_body = $('#content-body').val();
-        console.log("message_body :"+message_body);
+        // var message_body = $('#content-body').val();
+        // console.log("message_body :"+message_body);
 
 		payload['arguments'] = payload['arguments'] || {};
         payload['arguments'].execute = payload['arguments'].execute || {};
-        console.log("inArguments tokens :"+JSON.stringify(payload['arguments'].execute.inArguments[0].tokens.fuel2token));
-        console.log("inArguments sj_agent_id :"+JSON.stringify(payload['arguments'].execute.inArguments[0].sj_agent_id));
         
 		payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,

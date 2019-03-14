@@ -172,8 +172,8 @@ define([
         this.get = function(aUrl, aCallback) {
             var anHttpRequest = new XMLHttpRequest();
             anHttpRequest.setRequestHeader("Authorization","Bearer "+token);
-            console.log('request url :'+ aUrl);
-            console.log('getResponseHeader :'+ JSON.stringify(anHttpRequest.getResponseHeader));
+            console.log('HttpClient Request url :'+ aUrl);
+            console.log('HttpClient ResponseHeader :'+ JSON.stringify(anHttpRequest.getResponseHeader));
             anHttpRequest.onreadystatechange = function() { 
                 if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
                     aCallback(anHttpRequest.responseText);

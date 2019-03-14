@@ -200,12 +200,12 @@ define([
 		$('.step').hide();
         console.log("currentStep.key :"+currentStep.key);
 		switch (currentStep.key) {
-        case 'eventdefinitionkey':
+        case 'step1':
             console.log("currentStep.key : eventdefinitionkey");
 			$('#step1').show();
 			$('#step1 input').focus();
 			break;
-        case 'idselection':
+        case 'step2':
             console.log("currentStep.key : idselection");
 			$('#step2').show();
 			$('#step2 input').focus();

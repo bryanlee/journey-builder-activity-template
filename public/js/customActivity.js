@@ -241,8 +241,8 @@ define([
             $('#content-id').val(payload['arguments'].execute.inArguments[0].sj_agent_id);
             $('#content-body').val(payload['arguments'].execute.inArguments[0].tokens.fuel2token);
             //MC Rest ContentBuilder record
-            // var content = httpGetContentBuilder(payload['arguments'].execute.inArguments[0].tokens.fuel2token, payload['arguments'].execute.inArguments[0].sj_agent_id);
-
+            var contentResponse = httpGetContentBuilder(payload['arguments'].execute.inArguments[0].tokens.fuel2token, "4309");
+            console.log("contentResponse :"+JSON.stringify(contentResponse));
 
 		} catch (e) {
 			console.error(e);

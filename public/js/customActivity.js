@@ -169,6 +169,12 @@ define([
 		}
 	}
 
+    function onGotoStep (step) {
+        console.log("onGotoStep :"+JSON.stringify(step));
+		showStep(step);
+		connection.trigger('ready');
+	}
+
 	function onClickedNext () {
         console.log("onClickedNext :"+currentStep.key);
 		if (currentStep.key === 'step2') {
@@ -181,12 +187,6 @@ define([
 	function onClickedBack () {
         console.log("onClickedBack :");
 		connection.trigger('prevStep');
-	}
-
-	function onGotoStep (step) {
-        console.log("onGotoStep :"+JSON.stringify(step));
-		showStep(step);
-		connection.trigger('ready');
 	}
 
 	function showStep (step) {
@@ -296,9 +296,9 @@ define([
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
 	connection.on('initActivity', initialize);
-	connection.on('clickedNext', onClickedNext);
+    connection.on('gotoStep', onGotoStep);
+    connection.on('clickedNext', onClickedNext);
 	connection.on('clickedBack', onClickedBack);
-	connection.on('gotoStep', onGotoStep);
 	connection.on('requestedInteraction', requestedInteractionHandler);
 
     

@@ -6,7 +6,17 @@
 	<title>Service Cloud Custom Split</title>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script data-main="js/main.js" type="text/javascript" src="js/require.js"></script>
-
+    <script type="text/javascript">
+        (function () {
+            var config = {
+                baseUrl: 'js'
+            };
+            var dependencies = [
+                'customActivity'
+            ];
+            require(config, dependencies);
+        })();
+    </script>
 	<style type="text/css">
 		body {
 			padding: 15px;
@@ -60,7 +70,7 @@
 	</div>
 	<div id="step2" class="step">
         <h2>YK SMS Activity</h2>
-		<p>Please select the ID (event data column) to pass to the custom split backend.</p>
+		<p>Please input the Content Builder ID.</p>
 		<p class="inputLabel">ID</p>
 		<input id="select-id" placeholder="ID to pass to the backend" type="text" />
 		<select id="select-id-dropdown">

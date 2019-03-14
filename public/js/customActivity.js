@@ -216,9 +216,11 @@ define([
 	function requestedInteractionHandler (settings) {
 		try {
             console.log("requestedInteractionHandler : settings :"+ JSON.stringify(settings));
-            var jbName = settings.name + " version : " + settings.version;
+            var jbName = settings.name;
+            var jbVersion = settings.version;
             eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
             $('#jb-name').val(jbName);
+            $('#jb-version').val(jbVersion);
             $('#select-entryevent-defkey').val(eventDefinitionKey);
             
 			if (settings.triggers[0].type === 'EmailAudience' &&

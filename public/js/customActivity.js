@@ -216,7 +216,7 @@ define([
 	function requestedInteractionHandler (settings) {
 		try {
             console.log("requestedInteractionHandler : settings :"+ JSON.stringify(settings));
-            jbName = settings.name;
+            var jbName = settings.name + " version : " + settings.version;
             eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
             $('#jb-name').val(jbName);
             $('#select-entryevent-defkey').val(eventDefinitionKey);

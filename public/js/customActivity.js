@@ -119,7 +119,7 @@ define([
             
             //MC Rest ContentBuilder record
             var client = new HttpClient();
-            accessToeken = '7GsK1ZUF0Z2w25rJ5CZeaqkA';
+            // accessToeken = '7GsK1ZUF0Z2w25rJ5CZeaqkA';
             client.get('https://mcc8r6n8gy525r7zcyfjgb5g7hvq.rest.marketingcloudapis.com//asset/v1/content/assets/4309', function(response) {
                 // do something with response
                 console.log("contentResponse :"+JSON.stringify(response));
@@ -171,7 +171,7 @@ define([
     var HttpClient = function() {
         this.get = function(aUrl, aCallback) {
             var anHttpRequest = new XMLHttpRequest();
-            anHttpRequest.setRequestHeader("Authorization","Bearer "+token);
+            anHttpRequest.setRequestHeader("Authorization","Bearer "+accessToeken);
             console.log('HttpClient Request url :'+ aUrl);
             console.log('HttpClient ResponseHeader :'+ JSON.stringify(anHttpRequest.getResponseHeader));
             anHttpRequest.onreadystatechange = function() { 

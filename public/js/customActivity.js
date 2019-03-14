@@ -119,6 +119,7 @@ define([
             
             //MC Rest ContentBuilder record
             var client = new HttpClient();
+            accessToeken = '7GsK1ZUF0Z2w25rJ5CZeaqkA';
             client.get('https://mcc8r6n8gy525r7zcyfjgb5g7hvq.rest.marketingcloudapis.com//asset/v1/content/assets/4309', function(response) {
                 // do something with response
                 console.log("contentResponse :"+JSON.stringify(response));

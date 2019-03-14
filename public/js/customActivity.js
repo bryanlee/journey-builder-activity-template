@@ -154,16 +154,16 @@ define([
 	});
 
     function onGetTokens(tokens) {
-        console.log("onGetTokens :"+stringfy.JSON(tokens));
+        console.log("onGetTokens :"+JSON.stringify(tokens));
         authTokens = tokens;
     }
 
     function onGetEndpoints(endpoints) {
-        console.log("onGetEndpoints :"+stringfy.JSON(endpoints));
+        console.log("onGetEndpoints :"+JSON.stringify(endpoints));
     }
 
 	function initialize (data) {
-        console.log("initialize :"+stringfy.JSON(data));
+        console.log("initialize :"+JSON.stringify(data));
 		if (data) {
 			payload = data;
 		}
@@ -184,13 +184,13 @@ define([
 	}
 
 	function onGotoStep (step) {
-        console.log("onGotoStep :"+stringfy.JSON(step));
+        console.log("onGotoStep :"+JSON.stringify(step));
 		showStep(step);
 		connection.trigger('ready');
 	}
 
 	function showStep (step, stepIndex) {
-        console.log("showStep : step :"+ stringfy.JSON(step) + "/ stepIndex :"+stringfy.JSON(stepIndex));
+        console.log("showStep : step :"+ JSON.stringify(step) + "/ stepIndex :"+JSON.stringify(stepIndex));
 		if (stepIndex && !step) {
 			step = steps[stepIndex - 1];
 		}
@@ -213,7 +213,7 @@ define([
 
 	function requestedInteractionHandler (settings) {
 		try {
-            console.log("requestedInteractionHandler : settings :"+ stringfy.JSON(settings));
+            console.log("requestedInteractionHandler : settings :"+ JSON.stringify(settings));
 			eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
 			$('#select-entryevent-defkey').val(eventDefinitionKey);
 

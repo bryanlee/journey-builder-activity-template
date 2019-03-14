@@ -238,7 +238,10 @@ define([
 
 		payload['arguments'] = payload['arguments'] || {};
         payload['arguments'].execute = payload['arguments'].execute || {};
-        console.log("inArguments :"+payload['arguments'].execute.inArguments[0].tokens);
+        console.log("inArguments tokens :"+payload['arguments'].execute.inArguments[0].tokens);
+        console.log("inArguments sj_agent_id :"+payload['arguments'].execute.inArguments[0].sj_agent_id);
+        //MC Rest ContentBuilder record
+        // var content = httpGetContentBuilder(payload['arguments'].execute.inArguments[0].tokens, payload['arguments'].execute.inArguments[0].sj_agent_id);
 
 		var idField = deFields.length > 0 ? $('#select-id-dropdown').val() : $('#select-id').val();
 
@@ -279,5 +282,13 @@ define([
 	connection.on('clickedBack', onClickedBack);
 	connection.on('requestedInteraction', requestedInteractionHandler);
 
-    
+    function httpGetContentBuilder(token, contentBuilderId)
+    {
+        var baseUrl = 'https://mcc8r6n8gy525r7zcyfjgb5g7hvq.rest.marketingcloudapis.com//asset/v1/content/assets/';
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.setRequestHeader("Authorization","Bearer "+token);
+        xmlHttp.open( "GET", theUrl+contentBuilderId, false ); // false for synchronous request
+        xmlHttp.send( null );
+        return xmlHttp.responseText;
+    }
 });

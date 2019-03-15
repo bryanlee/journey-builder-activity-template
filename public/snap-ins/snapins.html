@@ -30,6 +30,7 @@
             <main class="slds-col">
                
                 <h1>Service Cloud - Snap-Ins Demo</h1>
+                <input id="5733000000000Gq" type="button" />
             </main>
             
 
@@ -67,9 +68,10 @@
     
             // Live Agent에 대한 설정
             embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-                console.log("prechatFormData : "+JSON.stringify(prechatFormData));
                 // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
                 // Returns a valid button ID.
+                console.log("prechatFormData : "+JSON.stringify(prechatFormData));
+                if (prechatFormData[3].value === "other") return "5733000000000Gq";
             };
             //embedded_svc.settings.prepopulatedPrechatFields = {}; //사전 채팅의 필드에서 자동 채우기 설정
             //embedded_svc.settings.fallbackRouting = []; //단추 ID, 사용자 ID 또는 userId_buttonId 배열

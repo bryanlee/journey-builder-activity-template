@@ -30,7 +30,7 @@
             <main class="slds-col">
                
                 <h1>Service Cloud - Snap-Ins Demo</h1>
-                <input id="5733000000000Gq" type="button" value="mc chat button"/>
+                <button class="uiButton no-hover helpButtonEnabled" href="javascript:void(0)"/>
             </main>
             
 
@@ -70,13 +70,13 @@
     <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
     <script type='text/javascript'>
         var initESW = function(gslbBaseURL) {
-            embedded_svc.settings.displayHelpButton = true; //또는 false
+            embedded_svc.settings.displayHelpButton = false; //또는 false
             embedded_svc.settings.language = ''; //예를 들어 'en' 또는 'en-US’ 입력
     
             //embedded_svc.settings.defaultMinimizedText = '...'; //(기본값 - 전문가와 채팅)
             //embedded_svc.settings.disabledMinimizedText = '...'; //(기본값 - 에이전트 오프라인)
             embedded_svc.settings.widgetWidth = "100%"
-            embedded_svc.settings.widgetHeight = "95%"
+            embedded_svc.settings.widgetHeight = "100%"
 
             //embedded_svc.settings.loadingText = ''; //(기본값 - 로드 중)
             embedded_svc.settings.storageDomain = 'dry-wave-39819.herokuapp.com'; //(방문객이 차트 세션 동안 하위 도메인을 탐색할 수 있도록 배포에 대한 도메인 설정)
@@ -85,13 +85,16 @@
             embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
                 // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
                 // Returns a valid button ID.
-                console.log("prechatFormData : "+JSON.stringify(prechatFormData));
-                if (prechatFormData[3].value === "other") return "5733000000000Gq";
+                // console.log("prechatFormData : "+JSON.stringify(prechatFormData));
+                // if (prechatFormData[3].value === "other") return "5733000000000Gq";
             };
             //embedded_svc.settings.prepopulatedPrechatFields = {}; //사전 채팅의 필드에서 자동 채우기 설정
             //embedded_svc.settings.fallbackRouting = []; //단추 ID, 사용자 ID 또는 userId_buttonId 배열
             //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(기본값: 연락처)
-    
+            embedded_svc.settings.onlineText = "";
+            embedded_svc.settings.onlineLoadingText = "";
+            embedded_svc.settings.offlineText = "";
+            embedded_svc.settings.initialInteractionState = "PRECHAT";
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
             embedded_svc.settings.entryFeature = 'LiveAgent';
     

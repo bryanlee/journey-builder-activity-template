@@ -60,16 +60,16 @@
             //embedded_svc.settings.defaultMinimizedText = '...'; //(기본값 - 전문가와 채팅)
             //embedded_svc.settings.disabledMinimizedText = '...'; //(기본값 - 에이전트 오프라인)
             embedded_svc.settings.widgetWidth = "100%"
-            embedded_svc.settings.widgetHeight = "80%"
+            embedded_svc.settings.widgetHeight = "100%"
 
             //embedded_svc.settings.loadingText = ''; //(기본값 - 로드 중)
             embedded_svc.settings.storageDomain = 'dry-wave-39819.herokuapp.com'; //(방문객이 차트 세션 동안 하위 도메인을 탐색할 수 있도록 배포에 대한 도메인 설정)
     
             // Live Agent에 대한 설정
-            embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-                Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-                Returns a valid button ID.
-            };
+            // embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+            //     Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+            //     Returns a valid button ID.
+            // };
             //embedded_svc.settings.prepopulatedPrechatFields = {}; //사전 채팅의 필드에서 자동 채우기 설정
             //embedded_svc.settings.fallbackRouting = []; //단추 ID, 사용자 ID 또는 userId_buttonId 배열
             //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(기본값: 연락처)

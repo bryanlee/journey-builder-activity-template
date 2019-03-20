@@ -114,10 +114,11 @@ define([
             $('#select-entryevent-defkey').val(eventDefinitionKey);
 
             console.log("inArguments token :"+payload['arguments'].execute.inArguments[0].tokens.fuel2token);    
-            console.log("inArguments sj_agent_id :"+payload['arguments'].execute.inArguments[0].sj_agent_id);
-            $('#content-id').val(payload['arguments'].execute.inArguments[0].sj_agent_id);
+            // console.log("inArguments sj_agent_id :"+payload['arguments'].execute.inArguments[0].sj_agent_id);
+            // $('#content-id').val(payload['arguments'].execute.inArguments[0].sj_agent_id);
             $('#content-body').val(payload['arguments'].execute.inArguments[0].tokens.fuel2token);
             
+            /* ERROR 
             //MC Rest ContentBuilder record
             var client = new HttpClient();
             // accessToeken = '7GsK1ZUF0Z2w25rJ5CZeaqkA';
@@ -125,6 +126,7 @@ define([
                 // do something with response
                 console.log("contentResponse :"+JSON.stringify(response));
             });
+            */
             
 		} catch (e) {
 			console.error(e);

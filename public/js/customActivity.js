@@ -15,8 +15,8 @@ define([
     var authTokens = {};
     var payload = {};
     var steps = [
-		{'key': 'step1', 'label': 'Event Definition Key'},
-		{'key': 'step2', 'label': 'Content Builder'}
+        {'key': 'step1', 'label': 'Event Definition Key'}
+        // ,{'key': 'step2', 'label': 'Content Builder'}
 	];
     var eventDefinitionKey = '';
     var accessToeken = '';
@@ -33,9 +33,10 @@ define([
     connection.on('initActivity', initialize);
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
-    connection.on('gotoStep', onGotoStep);
-    connection.on('clickedNext', onClickedNext);
-	connection.on('clickedBack', onClickedBack);
+    connection.on('clickedNext', save);
+    // connection.on('gotoStep', onGotoStep);
+    // connection.on('clickedNext', onClickedNext);
+	// connection.on('clickedBack', onClickedBack);
 	connection.on('requestedInteraction', requestedInteractionHandler);
     
     function onGetTokens(tokens) {
@@ -146,17 +147,18 @@ define([
             "email": "{{InteractionDefaults.Email}}",
             "sj_agent_id": "{{Event."+eventDefinitionKey+".sj_agent_id}}",
             "sj_agent_cid": "{{Event."+eventDefinitionKey+".sj_agent_cid}}",
-            "msg_type": "{{Event."+eventDefinitionKey+".callback}}",
+            "msg_type": "{{Event."+eventDefinitionKey+".msg_type}}",
             "mob_no": "{{Event."+eventDefinitionKey+".mob_no}}",
             "callback": "{{Event."+eventDefinitionKey+".callback}}",
-            "message_body": message_body,
+            "message_body": "{{Event."+eventDefinitionKey+".message_body}}",
+            // "message_body": message_body,
             "k_template_code": "{{Event."+eventDefinitionKey+".k_template_code}}",
             "sender_key": "{{Event."+eventDefinitionKey+".sender_key}}",
             "campaign_no": "{{Event."+eventDefinitionKey+".campaign_no}}",
             "segment": "{{Event."+eventDefinitionKey+".segment}}",
             "contact_key": "{{Event."+eventDefinitionKey+".contact_key}}",
             "running_datetime": "{{Event."+eventDefinitionKey+".running_datetime}}",
-            "rtn_mc_unit": "test"
+            "rtn_mc_unit": "{{Event."+eventDefinitionKey+".rtn_mc_unit}}"
         }];
 
 		payload['metaData'] = payload['metaData'] || {};
@@ -167,7 +169,9 @@ define([
 		connection.trigger('updateActivity', payload);
     }
     
-    
+    /**
+     * mc와 rest 통신 
+     */
     var HttpClient = function() {
         this.get = function(aUrl, aCallback) {
             var anHttpRequest = new XMLHttpRequest();
@@ -175,12 +179,18 @@ define([
             console.log('HttpClient Request url :'+ aUrl);
             console.log('HttpClient ResponseHeader :'+ JSON.stringify(anHttpRequest.getResponseHeader));
             anHttpRequest.onreadystatechange = function() { 
-                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                    aCallback(anHttpRequest.responseText);
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        aCallback(anHttpRequest.responseText);
+                    } else {
+                        console.log('[' + xhr.status + ']: ' + xhr.statusText);
+                    }
+                }
             }
     
             anHttpRequest.open( "GET", aUrl, true );            
             anHttpRequest.send( null );
         }
     }
+
 });

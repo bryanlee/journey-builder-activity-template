@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="step1" class="step">
+        <div class="slds-grid">
+
+            <main class="slds-col">
+               
+                <h1>Service Cloud - Snap-Ins DEV Demo2</h1>
+                <!-- <button class="uiButton no-hover helpButtonEnabled" href="javascript:void(0)"/> -->
+            </main>
+            
+
+        </div>
+
+    </div>
+    <style type='text/css'>
+        /
+        .embeddedServiceSidebar.layout-docked .dockableContainer {
+            width: 100%;
+            height: 100%;
+            /* margin: 12px auto;  */
+            left: 0;
+            right: 0;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+            /* border-radius: 8px; */
+            z-index: 15;
+            text-align: center;
+            overflow: hidden;
+            max-width: 40em;
+            pointer-events: all;
+            position: relative;
+        } 
+        
+        .embeddedServiceHelpButton .helpButton {
+            position: fixed;
+            bottom: 200px;
+            right: 100px;
+            height: 46px;
+            -webkit-font-smoothing: subpixel-antialiased;
+            text-align: center;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton {
+            background-color: #005290;
+            font-family: "Salesforce Sans", sans-serif;
+            border-radius: 5px;
+
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+            outline: 1px solid #005290;
+        }
+        @font-face {
+            font-family: 'Salesforce Sans';
+            src: url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.woff') format('woff'),
+            url('https://www.sfdcstatic.com/system/shared/common/assets/fonts/SalesforceSans/SalesforceSans-Regular.ttf') format('truetype');
+        }
+    </style>
+    <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+    <script type='text/javascript'>
+        var initESW = function(gslbBaseURL) {
+            embedded_svc.settings.displayHelpButton = true; //또는 false
+            embedded_svc.settings.language = ''; //예를 들어 'en' 또는 'en-US’ 입력
+
+            //embedded_svc.settings.defaultMinimizedText = '...'; //(기본값 - 전문가와 채팅)
+            //embedded_svc.settings.disabledMinimizedText = '...'; //(기본값 - 에이전트 오프라인)
+
+            //embedded_svc.settings.loadingText = ''; //(기본값 - 로드 중)
+            embedded_svc.settings.widgetWidth = "100%"
+            embedded_svc.settings.widgetHeight = "100%"
+            embedded_svc.settings.storageDomain = 'dry-wave-39819.herokuapp.com'; //(방문객이 차트 세션 동안 하위 도메인을 
+
+            var firstname = 'sangil'; //값 전달
+            var lastname = 'jeong'; //값 전달
+            var email = 'jeongsi@i2max.co.kr '; //값 전달
+            var issue = 'How can i sign in?'; //값 전달
+            embedded_svc.settings.defaultMinimizedText = "start chat"
+            embedded_svc.settings.extraPrechatFormDetails = [
+                {"label":"First Name", "name":firstname, "value":"sang hyup", "displayToAgent":true}
+                ,{"label":"Last Name", "value":lastname, "displayToAgent":true}
+                ,{"label":"Email", "value":email, "displayToAgent":true}
+                ,{"label":"issue", "value":issue, "displayToAgent":true}
+            ];
+
+            embedded_svc.settings.extraPrechatInfo = [
+                {
+                    "entityName":"Contact",
+                    "showOnCreate":true,
+                    "linkToEntityName":"Case",
+                    "linkToEntityField":"ContactId",
+                    "saveToTranscript":"ContactId",
+                    "entityFieldMaps": [
+                        {"isExactMatch":true, "fieldName":"FirstName", "doCreate":true, "doFind":true, "label":"First Name"}
+                        , {"isExactMatch":true, "fieldName":"LastName", "doCreate":true, "doFind":true, "label":"Last Name"}
+                        , {"isExactMatch":true, "fieldName":"Email", "doCreate":true, "doFind":true, "label":"Email"}
+                    ]
+                }
+                , {
+                    "entityName":"Case",
+                    "showOnCreate":true,
+                    "saveToTranscript":"CaseId",
+                    "entityFieldMaps": [
+                        {"isExactMatch":false, "fieldName":"Subject", "doCreate":true, "doFind":false, "label":"issue"}
+                        ,{"isExactMatch":false, "fieldName":"Status", "doCreate":true, "doFind":false, "label":"Status"}
+                        ,{"isExactMatch":false, "fieldName":"Origin", "doCreate":true, "doFind":false, "label":"Origin"}
+                    ]
+                }
+            ];
+            // Live Agent에 대한 설정
+            //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+                // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+                // Returns a valid button ID.
+            //};
+            //embedded_svc.settings.prepopulatedPrechatFields = {}; //사전 채팅의 필드에서 자동 채우기 설정
+            //embedded_svc.settings.fallbackRouting = []; //단추 ID, 사용자 ID 또는 userId_buttonId 배열
+            //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(기본값: 연락처)
+
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
+
+            embedded_svc.init(
+                'https://kbpoc.my.salesforce.com',
+                'https://kbtestcum.force.com/kbkookminbankpp',
+                gslbBaseURL,
+                '00D100000003lwT',
+                'Basic_Snap_ins',
+                {
+                    baseLiveAgentContentURL: 'https://c.la1-c1-ukb.salesforceliveagent.com/content',
+                    deploymentId: '57210000000Csh5',
+                    buttonId: '57310000000LHjo',
+                    baseLiveAgentURL: 'https://d.la1-c1-ukb.salesforceliveagent.com/chat',
+                    eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I100000004CRnEAM_1687817d330',
+                    isOfflineSupportEnabled: false
+                }
+            );
+        };
+
+        if (!window.embedded_svc) {
+            var s = document.createElement('script');
+            s.setAttribute('src', 'https://kbpoc.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.onload = function() {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
+    </script>
+</body>
+
+</html>

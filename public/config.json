@@ -18,8 +18,7 @@
           "inArguments":[
             { "contactKey": "{{Contact.Key}}"},
             { "email": "{{InteractionDefaults.Email}}"},
-            { "phone": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.mob_no}}"},
-            { "campaign_no": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.campaign_no}}"},
+            { "phone": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.Phone}}"},
             { "message_body": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.message_body}}"}
           ],
           "outArguments": [],

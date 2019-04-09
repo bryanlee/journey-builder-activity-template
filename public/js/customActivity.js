@@ -147,8 +147,8 @@ define([
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
             "email": "{{InteractionDefaults.Email}}",
-            "phone": "{{Event."+eventDefinitionKey+".mob_no}}",
-            "campaign_no": "{{Event."+eventDefinitionKey+".campaign_no}}",
+            "phone": "{{Event."+eventDefinitionKey+".Phone}}",
+            // "campaign_no": "{{Event."+eventDefinitionKey+".campaign_no}}",
             "message_body": message_body,
             
             // "segment": "{{Event."+eventDefinitionKey+".segment}}",

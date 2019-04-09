@@ -16,7 +16,7 @@ define([
     var payload = {};
     var steps = [
         {'key': 'step1', 'label': 'Event Definition Key'}
-        // ,{'key': 'step2', 'label': 'Content Builder'}
+        ,{'key': 'step2', 'label': 'Input Message'}
 	];
     var eventDefinitionKey = '';
     var accessToeken = '';
@@ -33,10 +33,10 @@ define([
     connection.on('initActivity', initialize);
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
-    connection.on('clickedNext', save);
-    // connection.on('gotoStep', onGotoStep);
-    // connection.on('clickedNext', onClickedNext);
-	// connection.on('clickedBack', onClickedBack);
+    // connection.on('clickedNext', save);
+    connection.on('gotoStep', onGotoStep);
+    connection.on('clickedNext', onClickedNext);
+	connection.on('clickedBack', onClickedBack);
 	connection.on('requestedInteraction', requestedInteractionHandler);
     
     function onGetTokens(tokens) {
@@ -137,8 +137,8 @@ define([
 	function save () {
         
         //TODO get  content bilder message body by id rest api?
-        // var message_body = $('#content-body').val();
-        // console.log("message_body :"+message_body);
+        var message_body = $('#content-body').val();
+        console.log("message_body :"+message_body);
 
 		payload['arguments'] = payload['arguments'] || {};
         payload['arguments'].execute = payload['arguments'].execute || {};
@@ -146,31 +146,33 @@ define([
 		payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactKey": "{{Contact.Key}}",
-            // "email": "{{InteractionDefaults.Email}}",
+            "email": "{{InteractionDefaults.Email}}",
+            "phone": "{{Event."+eventDefinitionKey+".mob_no}}",
             "campaign_no": "{{Event."+eventDefinitionKey+".campaign_no}}",
-            "segment": "{{Event."+eventDefinitionKey+".segment}}",
-            "contact_key": "{{Event."+eventDefinitionKey+".contact_key}}",
-            "sj_agent_id": "{{Event."+eventDefinitionKey+".sj_agent_id}}",
-            "sj_agent_cid": "{{Event."+eventDefinitionKey+".sj_agent_cid}}",
-            "running_datetime": "{{Event."+eventDefinitionKey+".running_datetime}}",
-            "col1": "{{Event."+eventDefinitionKey+".col1}}",
-            "col2": "{{Event."+eventDefinitionKey+".col2}}",
-            "col3": "{{Event."+eventDefinitionKey+".col3}}",
-            "col4": "{{Event."+eventDefinitionKey+".col4}}",
-            "col5": "{{Event."+eventDefinitionKey+".col5}}",
-            "col6": "{{Event."+eventDefinitionKey+".col6}}",
-            "col7": "{{Event."+eventDefinitionKey+".col7}}",
-            "col8": "{{Event."+eventDefinitionKey+".col8}}",
-            "col9": "{{Event."+eventDefinitionKey+".col9}}",
-            "col10": "{{Event."+eventDefinitionKey+".col10}}",
-            "mob_no": "{{Event."+eventDefinitionKey+".mob_no}}",
-            "message_body": "{{Event."+eventDefinitionKey+".message_body}}",
-            // "message_body": message_body,
-            "k_template_code": "{{Event."+eventDefinitionKey+".k_template_code}}",
-            "sender_key": "{{Event."+eventDefinitionKey+".sender_key}}",
-            "channel": "{{Event."+eventDefinitionKey+".channel}}",
-            "sms_rcv_yn": "{{Event."+eventDefinitionKey+".sms_rcv_yn}}",
-            "push_rcv_yn": "{{Event."+eventDefinitionKey+".push_rcv_yn}}",
+            "message_body": message_body,
+            
+            // "segment": "{{Event."+eventDefinitionKey+".segment}}",
+            // "contact_key": "{{Event."+eventDefinitionKey+".contact_key}}",
+            // "sj_agent_id": "{{Event."+eventDefinitionKey+".sj_agent_id}}",
+            // "sj_agent_cid": "{{Event."+eventDefinitionKey+".sj_agent_cid}}",
+            // "running_datetime": "{{Event."+eventDefinitionKey+".running_datetime}}",
+            // "col1": "{{Event."+eventDefinitionKey+".col1}}",
+            // "col2": "{{Event."+eventDefinitionKey+".col2}}",
+            // "col3": "{{Event."+eventDefinitionKey+".col3}}",
+            // "col4": "{{Event."+eventDefinitionKey+".col4}}",
+            // "col5": "{{Event."+eventDefinitionKey+".col5}}",
+            // "col6": "{{Event."+eventDefinitionKey+".col6}}",
+            // "col7": "{{Event."+eventDefinitionKey+".col7}}",
+            // "col8": "{{Event."+eventDefinitionKey+".col8}}",
+            // "col9": "{{Event."+eventDefinitionKey+".col9}}",
+            // "col10": "{{Event."+eventDefinitionKey+".col10}}",
+            // "mob_no": "{{Event."+eventDefinitionKey+".mob_no}}",
+            // "message_body": "{{Event."+eventDefinitionKey+".message_body}}",
+            // "k_template_code": "{{Event."+eventDefinitionKey+".k_template_code}}",
+            // "sender_key": "{{Event."+eventDefinitionKey+".sender_key}}",
+            // "channel": "{{Event."+eventDefinitionKey+".channel}}",
+            // "sms_rcv_yn": "{{Event."+eventDefinitionKey+".sms_rcv_yn}}",
+            // "push_rcv_yn": "{{Event."+eventDefinitionKey+".push_rcv_yn}}",
             // "msg_type": "{{Event."+eventDefinitionKey+".msg_type}}",
             // "callback": "{{Event."+eventDefinitionKey+".callback}}",
             // "rtn_mc_unit": "{{Event."+eventDefinitionKey+".rtn_mc_unit}}"

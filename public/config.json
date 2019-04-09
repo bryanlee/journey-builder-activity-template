@@ -1,58 +1,39 @@
 {
     "workflowApiVersion": "1.1",
     "metaData": {
-        "icon": "images/icon.png",
-        "iconSmall": "images/iconSmall.png",
+        "icon": "images/i2max_logo_40.png",
+        "iconSmall": "images/i2max_logo_25.png",
         "category": "message"
     },
     "type": "REST",
     "lang": {
         "en-US": {
-          "name": "YK-SMS-API",
-          "description": "sendSingleMessageRestAPI",
-          "step1Label": "Configure Activity"
+          "name": "I2MAX-DEMO",
+          "description": "i2max demo custom activity",
+          "step1Label": "i2max Custom Activity"
         }
     },
     "arguments": {
         "execute": {
           "inArguments":[
             { "contactKey": "{{Contact.Key}}"},
+            { "email": "{{InteractionDefaults.Email}}"},
+            { "phone": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.mob_no}}"},
             { "campaign_no": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.campaign_no}}"},
-            { "segment": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.segment}}"},
-            { "contact_key": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.contact_key}}"},
-            { "sj_agent_id": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.sj_agent_id}}"},
-            { "sj_agent_cid": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.sj_agent_cid}}"},
-            { "running_datetime": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.running_datetime}}"}, 
-            { "col1": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col1}}"},
-            { "col2": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col2}}"},
-            { "col3": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col3}}"},
-            { "col4": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col4}}"},
-            { "col5": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col5}}"},
-            { "col6": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col6}}"},
-            { "col7": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col7}}"},
-            { "col8": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col8}}"},
-            { "col9": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col9}}"},
-            { "col10": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.col10}}"},
-            { "mob_no": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.mob_no}}"},
-            { "message_body": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.message_body}}"},
-            { "k_template_code": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.k_template_code}}"},
-            { "sender_key": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.sender_key}}"},
-            { "channel": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.channel}}"},
-            { "sms_rcv_yn": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.sms_rcv_yn}}"},
-            { "push_rcv_yn": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.push_rcv_yn}}"}
+            { "message_body": "{{Event.DEAudience-8ed7573a-3ce5-c9f6-50e0-75cf778db7f9.message_body}}"}
           ],
           "outArguments": [],
-          "url": "https://y-k-mc-dev.herokuapp.com/api/sendSingleTestMsgRestAPI",
+          "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/execute",
 	        "verb": "POST",
           "body": "",
           "header": "",
           "format": "json",
-          "useJwt": true,
+          "useJwt": false,
           "timeout": 10000
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "caUlx0CCV5xzLnTqHLAZWba8c6Y_AzG1JX7gjGyVG8l2PVN8Gr1eDmr1wpQ0XFxjFR0SDhnZjhJriQAUauRf8XLzflfXxHBxGPQDEdhmYdhV6vvpazQKezvNCzNwv-xKfoBcHCSIBZqWVGaU43-mdG_SvZoo9k-QDNGcopr6qbvVsUr5_gVlAu7uVI2yDIa5vieCZbJiyUs0PjJVRkQg2OzCt72LImmpVwy3IIE65Rhj7qkmSZiY6PldoZOCXg2",
+      "applicationExtensionKey": "6qconpl58CqNp-1TuPMcYsa835_W7A0Zh0tUrxPT_kncN3MzmkE-hhowuX9QkEfkVAt3-M-UnFUvuSs_6xO-iNs6xbaikdkgOj9AkkR1o6nBZcu_9FUFRQICni-Hi_UorTSY3_tukog0GNFSdsJ5L86gAWUr4e8JcLW-lNRUyR4eHj24ZJ6Ssli5rgK0GviPo8WmwjQlDn61ZxyMXUDNTNrpBQdI1iy9Rp3cMbp2CxGbUyLotCGaRed1UhgMug2",
       "save": {
         "url": "https://dry-wave-39819.herokuapp.com/journeybuilder/save",
         "verb": "POST",
@@ -75,7 +56,8 @@
       }
     },
     "wizardSteps": [
-        { "label": "EventDefinitionKey", "key": "step1" }
+        { "label": "EventDefinitionKey", "key": "step1" },
+        { "label": "Message", "key": "step2" }
     ],
     "userInterfaces": {
         "configModal": {
